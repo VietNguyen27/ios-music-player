@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "get-mp3-duration": "^1.0.0",
+    "nodemon": "^2.0.12",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IOS Music Player</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="phone">
+      <div class="phone-container">
+        <div class="phone-button-outside">
+          <div class="button-outside button-right"></div>
+          <div class="button-outside button-left"></div>
+          <div class="button-outside button-left button-volume-up"></div>
+          <div class="button-outside button-left button-volume-down"></div>
+        </div>
+        <div class="phone-inner">
+          <div class="phone-header">
+            <div class="phone-time">
+              <span id="hour">9</span>:<span id="minute">41</span>
+              <ion-icon name="paper-plane"></ion-icon>
+            </div>
+            <div class="phone-widget">
+              <ion-icon name="wifi"></ion-icon>
+              <ion-icon name="battery-half"></ion-icon>
+            </div>
+            <div class="phone-camera">
+              <div class="camera"></div>
+            </div>
+          </div>
+          <div class="phone-content">
+            <div class="music-container">
+              <div class="music-header">
+                <div class="music-top">
+                  <h1>Music</h1>
+                  <button id="button-expand" class="button-control">
+                    <ion-icon name="ellipsis-horizontal"></ion-icon>
+                  </button>
+                </div>
+                <div class="volume-container">
+                  <input
+                    class="volume"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                  />
+                  <span>
+                    <ion-icon name="volume-high-outline"></ion-icon>
+                  </span>
+                </div>
+              </div>
+              <div class="music-content">
+                <div class="music-circle-progress">
+                  <div class="circle-progress">
+                    <div class="full-circle"></div>
+                    <img src="./img/Alec Benjamin - Boy In The Bubble.jfif" />
+                  </div>
+                </div>
+                <div class="music-info">
+                  <h2 class="music-name">Young and Beautify</h2>
+                  <span class="music-artist"> Lana Del Rey </span>
+                  <audio volume="0.1" class="music-audio"></audio>
+                </div>
+              </div>
+            </div>
+            <div class="music-footer">
+              <div class="heart-container">
+                <ion-icon name="heart"></ion-icon>
+              </div>
+              <div class="music-progress">
+                <div class="music-timeline">
+                  <span id="start-time"></span>
+                  <span id="end-time"></span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress"></div>
+                  <input
+                    class="slider"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="100"
+                  />
+                </div>
+              </div>
+              <div class="music-control">
+                <button
+                  id="button-shuffle"
+                  class="button-control button-action"
+                >
+                  <ion-icon name="shuffle"></ion-icon>
+                </button>
+                <button id="button-prev" class="button-control">
+                  <ion-icon name="play-skip-back-outline"></ion-icon>
+                </button>
+                <button
+                  id="button-play"
+                  class="button-control button-control--big"
+                >
+                  <ion-icon name="play-circle"></ion-icon>
+                </button>
+                <button id="button-next" class="button-control">
+                  <ion-icon name="play-skip-forward-outline"></ion-icon>
+                </button>
+                <button id="button-list" class="button-control">
+                  <ion-icon name="list"></ion-icon>
+                </button>
+              </div>
+              <div class="music-list-container">
+                <h4>Music List</h4>
+                <div class="music-list"></div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-footer">
+            <div class="function-bar"></div>
+          </div>
+          <div class="phone-start-screen">
+            <span>
+              <ion-icon name="logo-apple"></ion-icon>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
