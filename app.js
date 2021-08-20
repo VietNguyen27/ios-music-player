@@ -13,4 +13,7 @@ app.use('/musics', musicRoutes);
 app.use('/songs', express.static(path.join(__dirnamePath, '/songs')));
 app.use('/img', express.static(path.join(__dirnamePath, '/img')));
 
-app.listen(PORT, console.log(`Server running on port ${PORT}`));
+app.listen(
+  process.env.PORT || 5000,
+  console.log(`Server running on port ${PORT}`)
+);
