@@ -6,5 +6,14 @@
     "get-mp3-duration": "^1.0.0",
     "nodemon": "^2.0.12",
     "path": "^0.12.7"
-  }
+  },
+  "name": "1_my-own-playlist",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
