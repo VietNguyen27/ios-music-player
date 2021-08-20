@@ -9,11 +9,9 @@ const __dirnamePath = path.resolve();
 
 app.use(cors());
 
+app.use(express.static(path.resolve('./')));
 app.use('/musics', musicRoutes);
 app.use('/songs', express.static(path.join(__dirnamePath, '/songs')));
 app.use('/img', express.static(path.join(__dirnamePath, '/img')));
 
-app.listen(
-  process.env.PORT || 5000,
-  console.log(`Server running on port ${PORT}`)
-);
+app.listen(PORT, console.log(`Server running on port ${PORT}`));

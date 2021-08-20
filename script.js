@@ -34,7 +34,7 @@ const app = {
     }, 5000);
   },
   async getSongs() {
-    const res = await axios.get('http://192.168.0.106:5000/musics');
+    const res = await axios.get('/musics');
     this.songs = res.data;
   },
   defineProperties() {
@@ -278,9 +278,9 @@ const app = {
 
     songName.textContent = name;
     songArtist.textContent = artist;
-    songAudio.src = `http://192.168.0.106:5000/songs/${audio}`;
+    songAudio.src = `/songs/${audio}`;
     songAudio.currentTime = this.currentTime;
-    discEl.src = `http://192.168.0.106:5000/img/${img}`;
+    discEl.src = `/img/${img}`;
     discEl.setAttribute('draggable', false);
     startTime.textContent = '0:00';
     endTime.textContent = this.convertTime(duration);
@@ -300,7 +300,7 @@ const app = {
       songList += `
         <div class="music-item" id="music-${id}">
           <div class="music-img">
-            <img src="http://192.168.0.106:5000/img/${img}" />
+            <img src="/img/${img}" />
             <button class="button-control" data-id="${id}">
               <ion-icon name="play"></ion-icon>
             </button>
