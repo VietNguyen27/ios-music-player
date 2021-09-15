@@ -8,7 +8,7 @@ const listBtn = document.getElementById('button-list');
 const appendBtn = document.getElementById('button-expand');
 const startTime = document.getElementById('start-time');
 const endTime = document.getElementById('end-time');
-const phoneScreen = document.querySelector('.phone-start-screen');
+const startScreen = document.querySelector('.phone-start-screen');
 const volumeContainer = document.querySelector('.volume-container');
 const volumeInput = document.querySelector('.volume-container .volume');
 const volumeIcon = document.querySelector('.volume-container span');
@@ -30,7 +30,7 @@ const app = {
   isShuffle: false,
   turnOnMobile() {
     setTimeout(() => {
-      phoneScreen.remove();
+      startScreen.remove();
     }, 5000);
   },
   async getSongs() {
@@ -48,6 +48,7 @@ const app = {
     const _this = this;
     const musicItems = document.querySelectorAll('.music-item button');
     let volumeInterval = null;
+    let musicListInterval = null;
 
     playBtn.addEventListener('click', function () {
       _this.isPlaying ? _this.pauseSong() : _this.playSong();
@@ -74,11 +75,14 @@ const app = {
 
     appendBtn.addEventListener('click', function () {
       volumeContainer.classList.toggle('active');
+      clearInterval(volumeInterval);
 
-      volumeInterval = setInterval(function () {
-        volumeContainer.classList.remove('active');
-        clearInterval(volumeInterval);
-      }, 3000);
+      if (volumeContainer.classList.contains('active')) {
+        volumeInterval = setInterval(function () {
+          volumeContainer.classList.remove('active');
+          clearInterval(volumeInterval);
+        }, 3000);
+      }
     });
 
     musicItems.forEach((musicItem) => {
@@ -146,6 +150,14 @@ const app = {
     songAudio.ontimeupdate = function () {
       _this.changeSongTime(songAudio.currentTime, _this.currentSong.duration);
     };
+
+    navigator.mediaSession.setActionHandler('play', function () {
+      _this.playSong();
+    });
+
+    navigator.mediaSession.setActionHandler('pause', function () {
+      _this.pauseSong();
+    });
   },
   playSong() {
     const musicItems = document.querySelectorAll('.music-item button');
@@ -287,6 +299,7 @@ const app = {
     progressInput.value = 0;
     progressBar.style.background =
       'linear-gradient(90deg, var(--red-color) 0%, var(--gray-border) 0% )';
+    document.title = `${name} - ${artist}`;
 
     this.changeVolume(this.volume);
     this.setAppSettings({ currentSong: this.currentSong });

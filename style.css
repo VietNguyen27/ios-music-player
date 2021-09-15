@@ -14,6 +14,10 @@
   --light-golden-color: #faf1ea;
   --dark-blue-color: #2d4358;
   --red-color: #d5374f;
+
+  --zindex-low: 100;
+  --zindex-mid: 200;
+  --zindex-high: 300;
 }
 
 * {
@@ -44,6 +48,12 @@ button:focus-visible {
 img {
   width: 100%;
   object-fit: cover;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .button-outside {
@@ -135,7 +145,7 @@ img {
 
 .phone-header .phone-camera {
   position: absolute;
-  z-index: 1;
+  z-index: var(--zindex-low);
   top: 0;
   left: 50%;
   width: 170px;
@@ -148,7 +158,7 @@ img {
 
 .phone-header .phone-camera .camera {
   position: absolute;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   top: 5px;
   left: 75%;
   width: 8px;
@@ -176,7 +186,7 @@ img {
 
 .phone-footer {
   position: relative;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   width: 100%;
   height: 10px;
   display: flex;
@@ -194,7 +204,7 @@ img {
 
 .phone-start-screen {
   position: absolute;
-  z-index: 3;
+  z-index: var(--zindex-high);
   top: 0;
   left: 0;
   width: 100%;
@@ -223,7 +233,7 @@ img {
 
 .music-header .music-top {
   position: relative;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,7 +276,7 @@ img {
 
 .music-header .volume-container {
   position: absolute;
-  z-index: 3;
+  z-index: var(--zindex-high);
   top: 30px;
   width: 100%;
   opacity: 0;
@@ -344,7 +354,7 @@ img {
 .music-content .circle-progress:after {
   content: '';
   position: absolute;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   top: 50%;
   left: 50%;
   width: 20px;
@@ -357,7 +367,7 @@ img {
 
 .music-content .circle-progress img {
   position: relative;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   width: 150px;
   min-width: 150px;
   height: 150px;
@@ -397,7 +407,7 @@ img {
 
 .music-footer {
   position: relative;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   top: 130px;
   width: calc(100% + 60px);
   min-height: 100%;
@@ -409,7 +419,7 @@ img {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   box-shadow: 0 -1px 10px var(--black-shadow);
-  transition: all 0.25s;
+  transition: all 0.25s ease;
 }
 
 .music-footer.active {
@@ -462,7 +472,7 @@ img {
 
 .music-footer .music-progress .progress-bar .progress {
   position: absolute;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   top: 0;
   left: 0;
   width: 100%;
@@ -477,7 +487,7 @@ img {
 
 .music-footer .music-progress .progress-bar .slider {
   position: absolute;
-  z-index: 3;
+  z-index: var(--zindex-high);
   top: 50%;
   left: 0;
   width: 100%;
@@ -553,6 +563,7 @@ img {
 
 .music-footer .music-list-container {
   opacity: 0;
+  transition: all 0.25s ease;
 }
 
 .music-footer .music-list {
@@ -626,7 +637,7 @@ img {
 .music-footer .music-list .music-item .music-img:after {
   content: '';
   position: absolute;
-  z-index: 2;
+  z-index: var(--zindex-mid);
   top: 0;
   left: 0;
   width: 100%;
@@ -636,7 +647,7 @@ img {
 
 .music-footer .music-list .music-item .music-img button {
   position: absolute;
-  z-index: 3;
+  z-index: var(--zindex-high);
   top: 0;
   left: 0;
   width: 100%;

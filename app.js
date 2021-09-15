@@ -4,7 +4,6 @@ const musicRoutes = require('./routes');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
-const router = express.Router();
 const __dirnamePath = path.resolve();
 
 app.use(cors());
